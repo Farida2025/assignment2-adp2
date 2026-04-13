@@ -1,1 +1,19 @@
+syntax = "proto3";
 
+package payment;
+
+option go_package = "github.com/Farida2025/assignment2-adp2/payment";
+
+service PaymentService {
+  rpc ProcessPayment (PaymentRequest) returns (PaymentResponse);
+}
+
+message PaymentRequest {
+  string order_id = 1;
+  int64 amount = 2;
+}
+
+message PaymentResponse {
+  string transaction_id = 1;
+  string status = 2;
+}
